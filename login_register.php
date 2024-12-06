@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php
         include "constants.php";
-        echo $Appname
+        echo $Appname;
     ?> - Register/Login</title>
     <link rel="stylesheet" href="./CSS/login_register.css">
     <link rel="stylesheet" href="./CSS/home.css">
@@ -14,7 +14,6 @@
 <body>
     <script src = "./Javascript/logic.js"></script>
     <?php
-        $loggedIn = false;
         include 'navbar.php';
         include "db.php";
     ?>
@@ -79,14 +78,24 @@
             <?php
                 if ($_SERVER["REQUEST_METHOD"] == "POST" and $_POST["relevence"] == "login") {
                     $email = $_POST["email"];
-                    $qurry = "SELECT role, password FROM `user` WHERE email = '$email';";
+                    $qurry = "SELECT name, role, password FROM `user` WHERE email = '$email';";
                     $data = executeQuery($qurry);
                     if (is_array($data) and count($data) > 0) {
+                        $name = $data[0]["name"];
+                        $role = $data[0]["role"];
                         $hashed_password = $data[0]["password"];
                         if (password_verify($_POST["password"], $hashed_password)) {
                             // password matches
-                            $message = "Login successful . Click <a href = './leave_application.php' >here</a> to submit leave request";
+                            if ($role == "employee") {
+                                $message = "Login successful . Click <a href = './leave_application.php' >here</a> to submit leave request";
+                            }
+                            elseif ($role == "manager") {
+                                $message = "Login successful . Click <a href = './manager_dashboard.php' >here</a> to go to your dashboard";
+                            }
                             setcookie("state", "loggedin");
+                            setcookie("name", $name);
+                            setcookie("email", $email);
+                            setcookie("role", $role);
                             include "alert.php";
                         } else {
                             // Password doesn't match
