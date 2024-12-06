@@ -3,37 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login/Register</title>
+    <title><?php
+        include "constants.php";
+        echo $Appname
+    ?> - Register/Login</title>
     <link rel="stylesheet" href="./CSS/login_register.css">
     <link rel="stylesheet" href="./CSS/home.css">
+    <link rel="stylesheet" href="./CSS/alert.css">
 </head>
 <body>
-    <?php include 'navbar.php'; ?>
+    <script src = "./Javascript/logic.js"></script>
+    <?php
+        $loggedIn = false;
+        include 'navbar.php';
+        include "db.php";
+    ?>
     <div class="form-container">
         <div class="form-box">
-            <h2>Login</h2>
-            <form class="login-form">
-                <div class="form-group">
-                    <label for="login-username">Username</label>
-                    <input type="text" id="login-username" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="login-password">Password</label>
-                    <input type="password" id="login-password" name="password" required>
-                </div>
-                <button type="submit" class="form-btn">Login</button>
-            </form>
-        </div>
-        <div class="form-box">
             <h2>Register</h2>
-            <form class="register-form">
+            <?php
+                if ($_SERVER["REQUEST_METHOD"] == "POST"  and $_POST["relevence"] == "register") {
+                    $name = $_POST["name"];
+                    $role = $_POST["role"];
+                    $email = $_POST["email"];
+                    // Check if user is not rgistered
+                    $qurry = "SELECT email FROM `user`WHERE email = '$email';";
+                    if (count(executeQuery($qurry)) == 0) {
+                        // Perform user registration
+                        $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+                        $qurry = "INSERT INTO `user` (`name`, `email`, `password`, `role`) VALUES ('$name', '$email', '$password', '$role');";
+                        if (executeQuery($qurry)) {
+                            $message = "Registration successful. Please fill in the login form";
+                            include "alert.php";
+                        }
+                        else {
+                            $message = "Failed to register. Please try again layter";
+                            include "alert.php";
+                        }
+                    }
+                    else {
+                        $message = "You have already registered";
+                        include "alert.php";
+                    }
+                }
+            ?>
+            <form class="register-form" action="./login_register.php" method = "post">
                 <div class="form-group">
-                    <label for="register-username">Username</label>
-                    <input type="text" id="register-username" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="register-password">Password</label>
-                    <input type="password" id="register-password" name="password" required>
+                    <label for="register-name">Name</label>
+                    <input type="text" id="register-name" name="name" required>
                 </div>
                 <div class="form-group">
                     <label for="register-role">Role</label>
@@ -44,9 +61,65 @@
                         <label for="role-manager">Manager</label>
                     </div>
                 </div>
-                <button type="submit" class="form-btn">Register</button>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="text" id="register-email" name="email" class="email" required>
+                    <p id="register-error-message"></p>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" name="password" required>
+                </div>
+                <input type="hidden" name="relevence" value = "register">
+                <button type="submit" class="form-btn" id="register-btn">Register</button>
+            </form>
+        </div>
+        <div class="form-box">
+            <h2>Login</h2>
+            <?php
+                if ($_SERVER["REQUEST_METHOD"] == "POST" and $_POST["relevence"] == "login") {
+                    $email = $_POST["email"];
+                    $qurry = "SELECT role, password FROM `user` WHERE email = '$email';";
+                    $data = executeQuery($qurry);
+                    if (is_array($data) and count($data) > 0) {
+                        $hashed_password = $data[0]["password"];
+                        if (password_verify($_POST["password"], $hashed_password)) {
+                            // password matches
+                            $message = "Login successful . Click <a href = './leave_application.php' >here</a> to submit leave request";
+                            setcookie("state", "loggedin");
+                            include "alert.php";
+                        } else {
+                            // Password doesn't match
+                            $message = "Invald email or password. Please try again";
+                            include "alert.php";
+                        }
+                    } else {
+                        // No data retrived from Database
+                        $message = "Invald email or password. Please try again";
+                        include "alert.php";
+                    }
+                }
+            ?>
+            <form class="login-form" action="./login_register.php" method = "post">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="text" id="login-email" name="email" class="email" required>
+                    <p id="login-error-message"></p>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="password" required>
+                </div>
+                <input type="hidden" name="relevence" value = "login">
+                <button type="submit" class="form-btn" id="login-btn">Login</button>
             </form>
         </div>
     </div>
+
+    <script>
+    // JavaScript to close the alert box
+    document.getElementById('register-email').addEventListener('input', registerValidateEmail);
+    document.getElementById('login-email').addEventListener('input', loginValidateEmail);
+</script>
 </body>
 </html>
