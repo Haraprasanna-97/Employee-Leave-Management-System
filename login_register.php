@@ -87,10 +87,10 @@
                         if (password_verify($_POST["password"], $hashed_password)) {
                             // password matches
                             if ($role == "employee") {
-                                $message = "Login successful . Click <a href = './leave_application.php' >here</a> to submit leave request";
+                                $message = "Login successful . Click <a href = './my_applications.php' >here</a> to your applications page";
                             }
                             elseif ($role == "manager") {
-                                $message = "Login successful . Click <a href = './manager_dashboard.php' >here</a> to go to your dashboard";
+                                $message = "Login successful . Click <a href = './pending_applications.php' >here</a> to go to your dashboard";
                             }
                             setcookie("state", "loggedin");
                             setcookie("name", $name);
