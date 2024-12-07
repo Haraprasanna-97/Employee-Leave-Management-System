@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.table-wrapper {
+    width: 95%;
+    max-width: 1000px;
+    height: 500px; /* Fixed height for the scrollable container */
+    overflow-y: auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+.table-container {
+    width: 100%;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 18px;
+}
+
+.styled-table thead tr {
+    background-color: #007bff;
+    color: white;
+    text-align: left;
+    position: sticky;
+    top: 0;
+    z-index: 100; /* Ensure the header stays above the table rows */
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #007bff;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.button-container {
+    text-align: center;
+}
+
+.view-details-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 50px; /* Make the button pill-shaped */
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.view-details-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px); /* Add a slight lift effect */
+}
+
+.view-details-btn:active {
+    background-color: #004494;
+    transform: translateY(0); /* Reset lift effect on click */
+}
