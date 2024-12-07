@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php
         include "constants.php";
-        echo $Appname
+        echo $Appname;
     ?> - Leave Application Form</title>
     <link rel="stylesheet" href="./CSS/leave_application.css">
     <link rel="stylesheet" href="./CSS/home.css">

@@ -54,7 +54,8 @@ nav {
     color: #29e610;
 }
 
-.login-btn {
+.login-btn,
+.logout-btn {
     background-color: #219911;
     border: none;
     padding: 10px 20px;
@@ -63,13 +64,15 @@ nav {
     transition: background-color 0.3s;
 }
 
-.login-btn a {
+.login-btn a,
+.logout-btn a {
     text-decoration: none;
     color: #ffffff;
     font-size: 18px;
 }
 
-.login-btn:hover {
+.login-btn:hover,
+.logout-btn:hover {
     background-color: #195c0b;
 }
 
@@ -99,4 +102,27 @@ footer p {
     font-size: 14px;
     color: #777;
     margin-top: 20px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 15px;
+    color: white;
+}
+
+.username {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.role {
+    font-size: 14px;
+    color: #e0e0e0;
 }
