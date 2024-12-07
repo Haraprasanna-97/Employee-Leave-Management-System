@@ -14,7 +14,7 @@
     <?php
         include 'navbar.php';
         include 'db.php';
-        $query = "SELECT u.name, l.id, l.leave_type, l.start_date, l.end_date, l.reason FROM user u, leave_applications l WHERE u.email = l.email AND u.role = 'employee';";
+        $query = "SELECT u.name, l.id, l.leave_type, l.start_date, l.end_date, l.reason FROM user u, leave_applications l WHERE u.email = l.email AND u.role = 'employee' AND l.status = 'Pending';";
         $data = executeQuery($query);
     ?>
     <div class="table-wrapper">
