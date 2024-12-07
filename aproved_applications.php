@@ -6,7 +6,7 @@
     <title><?php
         include "constants.php";
         echo $Appname;
-    ?> - Pemding application</title>
+    ?> - Pending application</title>
     <link rel="stylesheet" href="CSS\manager_dashboard.css">
     <link rel="stylesheet" href="./CSS/home.css">
 </head>
@@ -14,12 +14,13 @@
     <?php
         include 'navbar.php';
         include 'db.php';
-        $query = "SELECT u.name, l.id, l.leave_type, l.start_date, l.end_date, l.reason FROM user u, leave_applications l WHERE u.email = l.email AND u.role = 'employee' AND l.status = 'Pending';";
+        $query = "SELECT u.name, l.id, l.leave_type, l.start_date, l.end_date, l.reason FROM user u, leave_applications l WHERE u.email = l.email AND u.role = 'employee' AND l.status = 'Approved';";
         $data = executeQuery($query);
     ?>
     <div class="table-wrapper">
         <div class="table-container">
             <table class="styled-table">
+                <caption>Aproved applications</caption>
                 <thead>
                     <tr>
                         <th>Name</th>
