@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./CSS/alert.css">
 </head>
 <body>
-<script src = "./Javascript/logic.js"></script>
+<script src = "./Javascript/validation.js"></script>
     <?php
         include 'navbar.php';
         include 'db.php';

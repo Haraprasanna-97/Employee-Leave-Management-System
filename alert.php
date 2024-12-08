@@ -1,4 +1,4 @@
-<script src = "./Javascript/logic.js"></script>
+<script src = "./Javascript/alert.js"></script>
 
 <div class="alert-box">
     <?php
