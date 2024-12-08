@@ -48,10 +48,11 @@
                 <label for="leave-type">Type of Leave</label>
                 <select id="leave-type" name="leave-type" required>
                     <option value="" selected>-- Selct one --</option>
-                    <option value="sick">Sick Leave</option>
-                    <option value="casual">Casual Leave</option>
-                    <option value="annual">Annual Leave</option>
-                    <option value="vacation">Vacation Leave</option>
+                    <option value="Sick">Sick Leave</option>
+                    <option value="Casual">Casual Leave</option>
+                    <option value="Annual">Annual Leave</option>
+                    <option value="Vacation">Vacation Leave</option>
+                    <option value="Accrued vacation">Accrued vacation</option>
                     <option value="other">Other</option>
                 </select>
             </div>
