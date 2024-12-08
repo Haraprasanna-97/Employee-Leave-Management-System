@@ -68,6 +68,7 @@
                 <div class="form-group">
                     <label for="register-password">Password</label>
                     <input type="password" id="register-password" name="password" required>
+                    <p id="register-password-message"></p>
                 </div>
                 <input type="hidden" name="relevence" value = "register">
                 <button type="submit" class="form-btn" id="register-btn">Register</button>
@@ -118,6 +119,7 @@
                 <div class="form-group">
                     <label for="login-password">Password</label>
                     <input type="password" id="login-password" name="password" required>
+                    <p id="login-password-message"></p>
                 </div>
                 <input type="hidden" name="relevence" value = "login">
                 <button type="submit" class="form-btn" id="login-btn">Login</button>
@@ -126,9 +128,10 @@
     </div>
 
     <script>
-    // JavaScript to close the alert box
     document.getElementById('register-email').addEventListener('input', registerValidateEmail);
     document.getElementById('login-email').addEventListener('input', loginValidateEmail);
+    document.getElementById('register-password').addEventListener('input', registerValidatePassword);
+    document.getElementById('login-password').addEventListener('input', loginValidatePassword);
 </script>
 </body>
 </html>
