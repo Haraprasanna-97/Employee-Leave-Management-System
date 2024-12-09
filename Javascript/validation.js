@@ -117,3 +117,31 @@ const loginValidatePassword = (e) => {
         loginButton.disabled = false;
     }
 };
+
+document.addEventListener('DOMContentLoaded', () => {
+    const startDateInput = document.getElementById('start-date');
+    const endDateInput = document.getElementById('end-date');
+    const message = document.getElementById('message');
+    const button = document.getElementById('form-btn');
+
+    const validateDates = () => {
+        const startDate = new Date(startDateInput.value);
+        const endDate = new Date(endDateInput.value);
+
+        if (startDateInput.value && endDateInput.value) {
+            if (endDate >= startDate) {
+                message.textContent = "";
+                button.disabled = false
+            } else {
+                message.textContent = "End date must be ahead of start date.";
+                message.style.color = "red";
+                button.disabled = true
+            }
+        } else {
+            message.textContent = "";
+        }
+    };
+
+    startDateInput.addEventListener('input', validateDates);
+    endDateInput.addEventListener('input', validateDates);
+});

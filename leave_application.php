@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./CSS/alert.css">
 </head>
 <body>
+    <script src = "./Javascript/validation.js"></script>
     <?php
         include 'navbar.php';
         include 'db.php';
@@ -63,12 +64,13 @@
             <div class="form-group">
                 <label for="end-date">End Date</label>
                 <input type="date" id="end-date" name="end-date" required>
+                <p id="message"></p>
             </div>
             <div class="form-group">
                 <label for="reason">Reason for Leave</label>
                 <textarea id="reason" name="reason" rows="4" required></textarea>
             </div>
-            <button type="submit" class="form-btn">Submit Application</button>
+            <button type="submit" id="form-btn" class="form-btn">Submit Application</button>
         </form>
     </div>
 </body>

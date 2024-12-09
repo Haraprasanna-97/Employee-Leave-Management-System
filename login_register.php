@@ -54,9 +54,9 @@
                 <div class="form-group">
                     <label for="register-role">Role</label>
                     <div class="role-selection">
-                        <input type="radio" id="role-employee" name="role" value="employee" required>
+                        <input type="radio" id="role-employee" name="role" value="Employee" required>
                         <label for="role-employee">Employee</label>
-                        <input type="radio" id="role-manager" name="role" value="manager" required>
+                        <input type="radio" id="role-manager" name="role" value="Manager" required>
                         <label for="role-manager">Manager</label>
                     </div>
                 </div>
@@ -87,10 +87,10 @@
                         $hashed_password = $data[0]["password"];
                         if (password_verify($_POST["password"], $hashed_password)) {
                             // password matches
-                            if ($role == "employee") {
+                            if ($role == "Employee") {
                                 $message = "Login successful . Click <a href = './my_applications.php' >here</a> to your applications page";
                             }
-                            elseif ($role == "manager") {
+                            elseif ($role == "Manager") {
                                 $message = "Login successful . Click <a href = './pending_applications.php' >here</a> to go to your dashboard";
                             }
                             setcookie("state", "loggedin");
@@ -128,10 +128,10 @@
     </div>
 
     <script>
-    document.getElementById('register-email').addEventListener('input', registerValidateEmail);
-    document.getElementById('login-email').addEventListener('input', loginValidateEmail);
-    document.getElementById('register-password').addEventListener('input', registerValidatePassword);
-    document.getElementById('login-password').addEventListener('input', loginValidatePassword);
-</script>
+        document.getElementById('register-email').addEventListener('input', registerValidateEmail);
+        document.getElementById('login-email').addEventListener('input', loginValidateEmail);
+        document.getElementById('register-password').addEventListener('input', registerValidatePassword);
+        document.getElementById('login-password').addEventListener('input', loginValidatePassword);
+    </script>
 </body>
 </html>

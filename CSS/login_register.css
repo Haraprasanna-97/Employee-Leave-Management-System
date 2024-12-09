@@ -87,6 +87,11 @@ input[type="password"] {
     background-color: #0056b3;
 }
 
-.form-btn:disabled {
-    background-color: #71b0f3;
+.form-btn:disabled,
+.form-btn:disabled:hover {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: 0.7;
 }
