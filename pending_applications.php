@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php
         include "constants.php";
-        echo $Appname;
-    ?> - Pending application</title>
+        echo "$APPNAME - $DASHBOARD_NAME";
+    ?></title>
     <link rel="stylesheet" href="CSS\manager_dashboard.css">
     <link rel="stylesheet" href="./CSS/home.css">
 </head>

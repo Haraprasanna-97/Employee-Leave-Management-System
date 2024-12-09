@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php
         include "constants.php";
-        echo $Appname;
+        echo $APPNAME;
     ?> - Delete Leave Approval Form</title>
     <link rel="stylesheet" href="CSS\delete_view.css">
     <link rel="stylesheet" href="./CSS/home.css">

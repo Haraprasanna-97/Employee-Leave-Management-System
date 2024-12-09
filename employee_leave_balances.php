@@ -6,7 +6,7 @@
     <title><?php
         include "constants.php";
         echo "$APPNAME - $DASHBOARD_NAME";
-    ?></title>
+    ?> </title>
     <link rel="stylesheet" href="CSS\manager_dashboard.css">
     <link rel="stylesheet" href="./CSS/home.css">
 </head>
@@ -14,21 +14,18 @@
     <?php
         include 'navbar.php';
         include 'db.php';
-        $query = "SELECT u.name, l.id, l.leave_type, l.start_date, l.end_date, l.reason FROM user u, leave_applications l WHERE u.email = l.email AND u.role = 'employee' AND l.status = 'Approved';";
+        $query = "SELECT u.name, l.leave_type, SUM(DATEDIFF(l.end_date, l.start_date) + 1) AS leave_balance FROM user u, leave_applications l WHERE u.email = l.email AND l.status = 'Approved' GROUP BY l.email, l.leave_type;";
         $data = executeQuery($query);
     ?>
     <div class="table-wrapper">
         <div class="table-container">
             <table class="styled-table">
-                <caption>Aproved applications</caption>
+            <caption>Leave balances</caption>
                 <thead>
                     <tr>
                         <th>Name</th>
                         <th>Leave type</th>
-                        <th>Start_date</th>
-                        <th>End_date</th>
-                        <th>Reason</th>
-                        <th>Action</th>
+                        <th>Leave balance</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,18 +34,7 @@
                             echo "<tr>
                             <td>" . $row["name"] . "</td>
                             <td>" . $row["leave_type"] . "</td>
-                            <td>" . $row["start_date"] . "</td>
-                            <td>" . $row["end_date"] . "</td>
-                            <td>" . $row["reason"] . "</td>
-                            <td>
-                            <form action='./details_view.php' method = 'post'>
-                            <div class='button-container'>
-                            <input type='hidden' name='id' value = " . $row["id"] . ">
-                            <input type='hidden' name='relevence' value = 'view'>
-                            <button class='view-details-btn'>View and take action</button>
-                            </div>
-                            </form>
-                            </td>
+                            <td>" . $row["leave_balance"] . " days</td>
                         </tr>";
                         }
                     ?>

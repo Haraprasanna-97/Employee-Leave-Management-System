@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php
         include "constants.php";
-        echo $Appname;
+        echo $APPNAME;
     ?> - My application</title>
     <link rel="stylesheet" href="CSS\manager_dashboard.css">
     <link rel="stylesheet" href="./CSS/home.css">
@@ -21,6 +21,7 @@
     <div class="table-wrapper">
         <div class="table-container">
             <table class="styled-table">
+            <caption>My leave applications</caption>
                 <thead>
                     <tr>
                         <th>Leave type</th>
