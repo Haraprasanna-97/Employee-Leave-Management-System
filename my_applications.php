@@ -42,15 +42,15 @@
                             <td>" . $row["reason"] . "</td>
                             <td>" . $row["status"] . "</td>
                             <td>
-                            <form action='./delete_view.php' method = 'post'>
+                            <form action='./employee_details_view.php' method = 'post'>
                             <div class='button-container'>
-                            <input type='hidden' name='id' value = " . $row["id"] . ">
-                            <input type='hidden' name='relevence' value = 'view'>
-                            <button class='view-details-btn'>Cancel leave</button>
+                                <input type='hidden' name='id' value = " . $row["id"] . ">
+                                <input type='hidden' name='relevence' value = 'view'>
+                                <button class='view-details-btn'>View and edit</button>
                             </div>
                             </form>
                             </td>
-                        </tr>";
+                            </tr>";
                         }
                     ?>
                 </tbody>

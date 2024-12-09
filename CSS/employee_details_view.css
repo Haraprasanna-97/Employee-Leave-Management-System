@@ -1,0 +1,105 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.form-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    padding: 20px;
+    text-align: center;
+}
+
+.approval-form {
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.approval-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.radio-group {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.radio-group input {
+    margin-right: 5px;
+}
+
+.form-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-btn:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: 0.7;
+}
+
+.form-btn:hover {
+    background-color: #0056b3;
+}
+
+.button-group { display: flex; justify-content: space-between; position: sticky; bottom: 0; background-color: white; padding: 10px 0; } .form-btn { flex-grow: 1; padding: 10px; border: none; border-radius: 4px; color: white; font-size: 16px; cursor: pointer; transition: background-color 0.3s; margin: 5px; /* Add some space between the buttons */ }
+.button-group { display: flex; justify-content: space-between; position: sticky; bottom: 0; background-color: white; padding: 10px 0; } .form-btn { flex-grow: 1; padding: 10px; border: none; border-radius: 4px; color: white; font-size: 16px; cursor: pointer; transition: background-color 0.3s; margin: 5px; /* Add some space between the buttons */ }
