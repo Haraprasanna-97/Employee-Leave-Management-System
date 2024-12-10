@@ -25,8 +25,8 @@
                     <tr>
                         <th>Name</th>
                         <th>Leave type</th>
-                        <th>Start_date</th>
-                        <th>End_date</th>
+                        <th>Start date</th>
+                        <th>End date</th>
                         <th>Reason</th>
                         <th>Action</th>
                     </tr>
