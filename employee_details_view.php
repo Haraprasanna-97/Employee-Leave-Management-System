@@ -54,7 +54,7 @@
                 <textarea id="comments" name="comments" rows="4" readonly><?php echo $data[0]["comment"] ?></textarea>
             </div>
             <div class="button-group">
-                <a href = "./my_applications.php" id = "form-btn" class="form-btn save-btn">Back</a>
+                <a href = "./my_applications.php" id = "form-btn" class="form-btn save-btn" style = "text-decoration : none">Back</a>
             </div>
         </form>
     </div>

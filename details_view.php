@@ -84,9 +84,9 @@
             <input type='hidden' name='relevence' value = "update">
             <div class="button-group">
                 <button type="submit" class="form-btn">Submit Decision</button>
-                <a href = "./pending_applications.php" id = "form-btn" class="form-btn save-btn">Back to pending</a>
-                <a href = "./aproved_applications.php" id = "form-btn" class="form-btn save-btn">Back to approved</a>
-                <a href = "./denied_applications.php" id = "form-btn" class="form-btn save-btn">Back to denied</a>
+                <a href = "./pending_applications.php" id = "form-btn" class="form-btn save-btn" style = "text-decoration : none">Back to pending</a>
+                <a href = "./aproved_applications.php" id = "form-btn" class="form-btn save-btn" style = "text-decoration : none">Back to approved</a>
+                <a href = "./denied_applications.php" id = "form-btn" class="form-btn save-btn" style = "text-decoration : none">Back to denied</a>
             </div>
         </form>
     </div>
