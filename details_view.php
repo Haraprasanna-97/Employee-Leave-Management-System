@@ -6,7 +6,7 @@
     <title><?php
         include "constants.php";
         echo $APPNAME;
-    ?> - Leave Approval Form</title>
+    ?> - Details</title>
     <link rel="stylesheet" href="CSS\details_view.css">
     <link rel="stylesheet" href="./CSS/home.css">
     <link rel="stylesheet" href="./CSS/alert.css">
@@ -18,7 +18,7 @@
         include 'db.php';
         if ($_SERVER["REQUEST_METHOD"] == "POST" and $_POST["relevence"] == "view") {
             $id = $_POST["id"];
-            $query = "SELECT l.id, u.name, l.leave_type, l.start_date, l.end_date, l.reason, l.status FROM user u, leave_applications l WHERE u.email = l.email AND u.role = 'employee' AND l.id = $id;";
+            $query = "SELECT l.id, u.name, l.leave_type, l.start_date, l.end_date, l.reason, l.status, l.comment FROM user u, leave_applications l WHERE u.email = l.email AND u.role = 'employee' AND l.id = $id;";
             $data = executeQuery($query);
         }
         elseif ($_SERVER["REQUEST_METHOD"] == "POST" and $_POST["relevence"] == "update") {
@@ -36,7 +36,7 @@
     ?>
     <div class="form-container">
         <form class="approval-form" action="./details_view.php" method = "post">
-            <h2>Leave Approval Form</h2>
+            <h2>Details</h2>
             <?php
                 echo "Current status : " . $data[0]["status"];
             ?>
@@ -63,25 +63,31 @@
             <div class="form-group approval-buttons">
                 <label>Approval</label>
                 <div class="radio-group">
-                    <input type="radio" id="approve" name="decision" value="Approved">
+                    <input type="radio" id="approve" name="decision" value="Approved" <?php if ($data[0]["status"] == "Approved") {
+                        echo "checked";
+                    } ?>>
                     <label for="approve">Approve</label>
-                    <input type="radio" id="deny" name="decision" value="Denied">
+                    <input type="radio" id="deny" name="decision" value="Denied" <?php if ($data[0]["status"] == "Denied") {
+                        echo "checked";
+                    } ?>>
                     <label for="deny">Deny</label>
                 </div>
             </div>
             <div class="form-group">
                 <label for="comments">Comments</label>
-                <textarea id="comments" name="comments" rows="4"><?php
-                if (isset($data[0]["comment"])) {
-                    echo $data[0]["comment"];
-                }?></textarea>
+                <textarea id="comments" name="comments" rows="4"><?php echo $data[0]["comment"]; ?></textarea>
             </div>
             <input type='hidden' name='id' value = "<?php
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo $_POST["id"];
             } ?>">
             <input type='hidden' name='relevence' value = "update">
-            <button type="submit" class="form-btn">Submit Decision</button>
+            <div class="button-group">
+                <button type="submit" class="form-btn">Submit Decision</button>
+                <a href = "./pending_applications.php" id = "form-btn" class="form-btn save-btn">Back to pending</a>
+                <a href = "./aproved_applications.php" id = "form-btn" class="form-btn save-btn">Back to approved</a>
+                <a href = "./denied_applications.php" id = "form-btn" class="form-btn save-btn">Back to denied</a>
+            </div>
         </form>
     </div>
 </body>

@@ -91,3 +91,24 @@ textarea {
 .form-btn:hover {
     background-color: #0056b3;
 }
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    bottom: 0;
+    background-color: white;
+    padding: 10px 0;
+}
+
+.form-btn {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 5px; /* Add some space between the buttons */
+}

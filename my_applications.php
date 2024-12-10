@@ -46,7 +46,7 @@
                             <div class='button-container'>
                                 <input type='hidden' name='id' value = " . $row["id"] . ">
                                 <input type='hidden' name='relevence' value = 'view'>
-                                <button class='view-details-btn'>View and edit</button>
+                                <button class='view-details-btn'>View</button>
                             </div>
                             </form>
                             </td>
