@@ -48,11 +48,11 @@
             ?>
             <form class="register-form" action="./login_register.php" method = "post">
                 <div class="form-group">
-                    <label for="register-name">Name</label>
+                    <label for="register-name">Name (Required)</label>
                     <input type="text" id="register-name" name="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="register-role">Role</label>
+                    <label for="register-role">Role (Required)</label>
                     <div class="role-selection">
                         <input type="radio" id="role-employee" name="role" value="Employee" required>
                         <label for="role-employee">Employee</label>
@@ -61,12 +61,12 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="register-email">Email</label>
+                    <label for="register-email">Email (Required)</label>
                     <input type="text" id="register-email" name="email" class="email" required>
                     <p id="register-error-message"></p>
                 </div>
                 <div class="form-group">
-                    <label for="register-password">Password</label>
+                    <label for="register-password">Password (Required)</label>
                     <input type="password" id="register-password" name="password" required>
                     <p id="register-password-message"></p>
                 </div>
@@ -112,12 +112,12 @@
             ?>
             <form class="login-form" action="./login_register.php" method = "post">
                 <div class="form-group">
-                    <label for="login-email">Email</label>
+                    <label for="login-email">Email (Required)</label>
                     <input type="text" id="login-email" name="email" class="email" required>
                     <p id="login-error-message"></p>
                 </div>
                 <div class="form-group">
-                    <label for="login-password">Password</label>
+                    <label for="login-password">Password (Required)</label>
                     <input type="password" id="login-password" name="password" required>
                     <p id="login-password-message"></p>
                 </div>

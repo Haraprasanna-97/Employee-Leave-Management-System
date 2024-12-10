@@ -46,7 +46,7 @@
                 <input type="email" id="email" name="email" value="<?php echo $_COOKIE["email"] ?>" readonly>
             </div>
             <div class="form-group">
-                <label for="leave-type">Type of Leave</label>
+                <label for="leave-type">Type of Leave (Required)</label>
                 <select id="leave-type" name="leave-type" required>
                     <option value="" selected>-- Selct one --</option>
                     <option value="Sick">Sick Leave</option>
@@ -58,16 +58,16 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="start-date">Start Date</label>
+                <label for="start-date">Start Date (Required)</label>
                 <input type="date" id="start-date" name="start-date" required>
             </div>
             <div class="form-group">
-                <label for="end-date">End Date</label>
+                <label for="end-date">End Date (Required)</label>
                 <input type="date" id="end-date" name="end-date" required>
                 <p id="message"></p>
             </div>
             <div class="form-group">
-                <label for="reason">Reason for Leave</label>
+                <label for="reason">Reason for Leave (Required)</label>
                 <textarea id="reason" name="reason" rows="4" required></textarea>
             </div>
             <button type="submit" id="form-btn" class="form-btn">Submit Application</button>
