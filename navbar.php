@@ -7,7 +7,7 @@
                     if ($_COOKIE["role"] == "Employee") {
                         echo "<li><a href='./my_applications.php'>Leave applications</a></li>";
                         echo "<li><a href='./my_leave_balances.php'>Leave balances</a></li>";
-                        echo "<li><a href='./calender_view.php'>Leave calendar</a></li>";
+                        echo "<li><a href='./calender_view.php'>Calendar</a></li>";
                         echo "<li><a href='./leave_application.php'>Fill leave application</a></li>";
                     }
                     elseif ($_COOKIE["role"] == "Manager") {

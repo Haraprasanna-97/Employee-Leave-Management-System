@@ -15,7 +15,7 @@
         include 'navbar.php';
         $count = 1
     ?>
-    <form action="./calender_view.php" method = "post">
+    <form class = "calender-form" action="./calender_view.php" method = "post">
         <div class="form-group">
             <label for="month">Month</label>
             <select id="month" name="month" style = "width: 50%;" required>
@@ -29,7 +29,6 @@
         <div class="form-group">
             <label for="start-date">Year</label>
             <input type="text" id="year" name="year" style = "width: 20%;" required>
-            <!-- <br> -->
             <button type = "submit" class="nav-btn">Show calender</button>
         </div>
     </form>
