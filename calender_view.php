@@ -15,10 +15,10 @@
         include 'navbar.php';
         $count = 1
     ?>
-    <form class = "calender-form" action="./calender_view.php" method = "post">
+    <form action="./calender_view.php" method = "post">
         <div class="form-group">
             <label for="month">Month</label>
-            <select id="month" name="month" required>
+            <select id="month" name="month" style = "width: 50%;" required>
                 <option value="" selected>-- Selct month --</option>
                 <?php foreach ($months as $month): ?>
                     <option value="<?php echo $count; ?>"> <?php echo "$month"; ?> </option>
@@ -28,11 +28,12 @@
         </div>
         <div class="form-group">
             <label for="start-date">Year</label>
-            <input type="text" id="year" name="year" required>
+            <input type="text" id="year" name="year" style = "width: 20%;" required>
+            <!-- <br> -->
             <button type = "submit" class="nav-btn">Show calender</button>
-            <a href = "./calender_view.php" class="nav-btn" style = "text-decoration : none">Current month</a>
         </div>
     </form>
+    <a href = "./calender_view.php" class="nav-btn" style = "text-decoration : none; width: 15%;" ">Current month</a>
     <div class="calender-container">
         <?php
             include 'db.php';
