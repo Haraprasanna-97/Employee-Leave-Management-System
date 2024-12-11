@@ -9,5 +9,4 @@ This application supports two roles: manager and employee. Employees can submit 
 - CSS
 - JavScript
 - PHP
-- Mysql
-
+- MySQL
