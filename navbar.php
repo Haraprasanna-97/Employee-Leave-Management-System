@@ -31,7 +31,10 @@
             </div>";
             }
             else {
-                echo "<button class='login-btn'><a href='./login_register.php'>Login/Register</a></button>";
+                echo "<div>
+                    <button class='login-btn'><a href='./register.php'>Register</a></button>
+                    <button class='login-btn'><a href='./login.php'>Login</a></button>
+                </div>";
             }
             ?>
     </nav>

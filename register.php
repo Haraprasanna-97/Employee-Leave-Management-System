@@ -32,7 +32,7 @@
                         $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
                         $qurry = "INSERT INTO `user` (`name`, `email`, `password`, `role`) VALUES ('$name', '$email', '$password', '$role');";
                         if (executeQuery($qurry)) {
-                            $message = "Registration successful. Please fill in the login form";
+                            $message = "Registration successful. Please fill in the <a href = './login.php'>login</a form";
                             include "alert.php";
                         }
                         else {
@@ -46,7 +46,7 @@
                     }
                 }
             ?>
-            <form class="register-form" action="./login_register.php" method = "post">
+            <form class="register-form" action="./register.php" method = "post">
                 <div class="form-group">
                     <label for="register-name">Name (Required)</label>
                     <input type="text" id="register-name" name="name" required>
@@ -73,65 +73,23 @@
                 <input type="hidden" name="relevence" value = "register">
                 <button type="submit" class="form-btn" id="register-btn">Register</button>
             </form>
+            <input type = "button" class="form-btn" id="show-hide-btn" value = "Show"></input>
         </div>
-        <div class="form-box">
-            <h2>Login</h2>
-            <?php
-                if ($_SERVER["REQUEST_METHOD"] == "POST" and $_POST["relevence"] == "login") {
-                    $email = $_POST["email"];
-                    $qurry = "SELECT name, role, password FROM `user` WHERE email = '$email';";
-                    $data = executeQuery($qurry);
-                    if (is_array($data) and count($data) > 0) {
-                        $name = $data[0]["name"];
-                        $role = $data[0]["role"];
-                        $hashed_password = $data[0]["password"];
-                        if (password_verify($_POST["password"], $hashed_password)) {
-                            // password matches
-                            if ($role == "Employee") {
-                                $message = "Login successful . Click <a href = './my_applications.php' >here</a> to your applications page";
-                            }
-                            elseif ($role == "Manager") {
-                                $message = "Login successful . Click <a href = './pending_applications.php' >here</a> to go to your dashboard";
-                            }
-                            setcookie("state", "loggedin");
-                            setcookie("name", $name);
-                            setcookie("email", $email);
-                            setcookie("role", $role);
-                            include "alert.php";
-                        } else {
-                            // Password doesn't match
-                            $message = "Invald email or password. Please try again";
-                            include "alert.php";
-                        }
-                    } else {
-                        // No data retrived from Database
-                        $message = "Invald email or password. Please try again";
-                        include "alert.php";
-                    }
-                }
-            ?>
-            <form class="login-form" action="./login_register.php" method = "post">
-                <div class="form-group">
-                    <label for="login-email">Email (Required)</label>
-                    <input type="text" id="login-email" name="email" class="email" required>
-                    <p id="login-error-message"></p>
-                </div>
-                <div class="form-group">
-                    <label for="login-password">Password (Required)</label>
-                    <input type="password" id="login-password" name="password" required>
-                    <p id="login-password-message"></p>
-                </div>
-                <input type="hidden" name="relevence" value = "login">
-                <button type="submit" class="form-btn" id="login-btn">Login</button>
-            </form>
-        </div>
-    </div>
 
     <script>
         document.getElementById('register-email').addEventListener('input', registerValidateEmail);
         document.getElementById('login-email').addEventListener('input', loginValidateEmail);
         document.getElementById('register-password').addEventListener('input', registerValidatePassword);
         document.getElementById('login-password').addEventListener('input', loginValidatePassword);
+        
+        document.getElementById('show-hide-btn').addEventListener('click', (e) => {
+            if (e.target.value == "Show") {
+                e.target.value = "Hide"
+            }
+            else {
+                e.target.value = "Show"
+            }
+        });
     </script>
 </body>
 </html>
