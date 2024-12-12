@@ -33,13 +33,4 @@ function executeQuery($query) {
     $conn->close();
     return true;
 }
-
-// Example usage
-// $query = "INSERT INTO user (id, name1) Values ('2', 'h')";
-
-// $result = executeQuery($query);
-
-// if ($result !== null) {
-//     print_r($result);
-// }
 ?>

@@ -1,7 +1,7 @@
 <header class="sticky-navbar">
     <nav>
         <ul class="nav-list">
-            <li><a href="/Employee Leave Management System">Home</a></li>
+            <li><a href="./index.php">Home</a></li>
             <?php
                 if(isset($_COOKIE["role"])) {
                     if ($_COOKIE["role"] == "Employee") {
