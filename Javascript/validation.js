@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
     endDateInput.addEventListener('input', validateDates);
 });
 
-const toggleLoginPasswordVisibility = (e) => {   
+const toggleRegisterPasswordVisibility = (e) => {   
     console.log("event fired") 
     e.preventDefault()
     if (document.getElementById('show-hide-icon').innerText === "visibility") {
@@ -159,7 +159,7 @@ const toggleLoginPasswordVisibility = (e) => {
     }
 }
 
-const toggleRegisterPasswordVisibility = (e) => {   
+const toggleLoginPasswordVisibility = (e) => {   
     console.log("event fired") 
     e.preventDefault()
     if (document.getElementById('show-hide-icon').innerText === "visibility") {
