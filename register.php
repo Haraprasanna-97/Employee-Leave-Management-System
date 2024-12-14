@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./CSS/login_register.css">
     <link rel="stylesheet" href="./CSS/home.css">
     <link rel="stylesheet" href="./CSS/alert.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
     <script src = "./Javascript/validation.js"></script>
@@ -67,29 +68,20 @@
                 </div>
                 <div class="form-group">
                     <label for="register-password">Password (Required)</label>
-                    <input type="password" id="register-password" name="password" required>
+                    <div class="input-superimposed">
+                        <input type="password" id="register-password" name="password" required>
+                        <button id="show-hide-btn"><i id = "show-hide-icon" class="material-icons">visibility</i></button>
+                    </div>
                     <p id="register-password-message"></p>
                 </div>
                 <input type="hidden" name="relevence" value = "register">
                 <button type="submit" class="form-btn" id="register-btn">Register</button>
             </form>
-            <input type = "button" class="form-btn" id="show-hide-btn" value = "Show"></input>
         </div>
-
     <script>
         document.getElementById('register-email').addEventListener('input', registerValidateEmail);
-        document.getElementById('login-email').addEventListener('input', loginValidateEmail);
         document.getElementById('register-password').addEventListener('input', registerValidatePassword);
-        document.getElementById('login-password').addEventListener('input', loginValidatePassword);
-        
-        document.getElementById('show-hide-btn').addEventListener('click', (e) => {
-            if (e.target.value == "Show") {
-                e.target.value = "Hide"
-            }
-            else {
-                e.target.value = "Show"
-            }
-        });
+        document.getElementById('show-hide-btn').addEventListener('click', toggleRegisterPasswordVisibility);
     </script>
 </body>
 </html>

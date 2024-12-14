@@ -145,3 +145,29 @@ document.addEventListener('DOMContentLoaded', () => {
     startDateInput.addEventListener('input', validateDates);
     endDateInput.addEventListener('input', validateDates);
 });
+
+const toggleLoginPasswordVisibility = (e) => {   
+    console.log("event fired") 
+    e.preventDefault()
+    if (document.getElementById('show-hide-icon').innerText === "visibility") {
+        document.getElementById('show-hide-icon').innerText = "visibility_off"
+        document.getElementById('register-password').type = "text"
+    }
+    else {
+        document.getElementById('register-password').type = "password"
+        document.getElementById('show-hide-icon').innerText = "visibility"
+    }
+}
+
+const toggleRegisterPasswordVisibility = (e) => {   
+    console.log("event fired") 
+    e.preventDefault()
+    if (document.getElementById('show-hide-icon').innerText === "visibility") {
+        document.getElementById('show-hide-icon').innerText = "visibility_off"
+        document.getElementById('login-password').type = "text"
+    }
+    else {
+        document.getElementById('login-password').type = "password"
+        document.getElementById('show-hide-icon').innerText = "visibility"
+    }
+}
