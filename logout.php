@@ -19,8 +19,8 @@
     <div class="logout-container">
         <div class="logout-message">
             <h1>You have been logged out.</h1>
-            <a href="./login.php" class="login-link">Login / register</a>
-            <a href="./register.php" class="login-link">Login / register</a>
+            <a href="./login.php" class="login-link">Login</a>
+            <a href="./register.php" class="login-link">Register</a>
             <a href="./index.php" class="login-link">Home</a>
         </div>
     </div>

@@ -33,7 +33,7 @@
                         $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
                         $qurry = "INSERT INTO `user` (`name`, `email`, `password`, `role`) VALUES ('$name', '$email', '$password', '$role');";
                         if (executeQuery($qurry)) {
-                            $message = "Registration successful. Please fill in the <a href = './login.php'>login</a form";
+                            $message = "Registration successful. Please fill in the <a href = './login.php'>login</a> form";
                             include "alert.php";
                         }
                         else {
