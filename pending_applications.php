@@ -17,7 +17,6 @@
         $query = "SELECT u.name, l.id, l.leave_type, l.start_date, l.end_date, l.reason FROM user u, leave_applications l WHERE u.email = l.email AND u.role = 'employee' AND l.status = 'Pending';";
         $data = executeQuery($query);
     ?>
-    <!-- <h2>Pending</h2> -->
     <div class="table-wrapper">
         <div class="table-container">
             <table class="styled-table">
@@ -26,8 +25,8 @@
                     <tr>
                         <th>Name</th>
                         <th>Leave type</th>
-                        <th>Start_date</th>
-                        <th>End_date</th>
+                        <th>Start date</th>
+                        <th>End date</th>
                         <th>Reason</th>
                         <th>Action</th>
                     </tr>
