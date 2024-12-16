@@ -85,11 +85,12 @@
 
 .calender-container {
     width: 95%;
+    height: 100%;
     max-width: 1000px;
     overflow-y: auto;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 input[type="text"],
@@ -119,4 +120,8 @@ select {
 
 .nav-btn:hover {
     background-color: #0056b3;
+}
+
+#month-year {
+    padding-top: 20px;
 }

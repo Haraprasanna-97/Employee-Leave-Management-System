@@ -83,11 +83,3 @@ body {
     background-color: #004494;
     transform: translateY(0); /* Reset lift effect on click */
 }
-
-.leave {
-    color:red
-}
-
-.available {
-    color:green
-}

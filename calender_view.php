@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./CSS/home.css">
     <link rel="stylesheet" href="./CSS/calendar.css">
     <link rel="stylesheet" href="CSS\manager_dashboard.css">
+    <link rel="stylesheet" href="CSS\manager_calender.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
@@ -40,15 +41,21 @@
             $month = $_POST["month"] -1;
             $year = $_POST["year"];
             $month_year = "$months[$month] $year";
+            echo "<h3 id = 'month-year'>$month_year</h3>";
         }
-        echo "<h3 id = 'month-year'>$month_year</h3>";
+        elseif ($_SERVER["REQUEST_METHOD"] == "GET" and isset($_COOKIE["role"]) and $_COOKIE["role"] == "Manager") {
+            $month = date("m") -1;
+            $year = date("Y");
+            $month_year = "$months[$month] $year";
+            echo "<h3 id = 'month-year'>$month_year</h3>";
+        }
     ?>
     <div class="calender-container">
         <?php
             include 'db.php';
             include 'Calendar.php';
             if(isset($_COOKIE["role"]) and $_COOKIE["role"] == "Manager") {
-                $query = "SELECT u.name, l.start_date, l.leave_type, DATEDIFF(l.end_date, l.start_date) AS date_difference FROM user u , leave_applications l WHERE l.email = u.email AND status = \"Approved\";";
+                $query = "SELECT u.name, l.start_date, l.leave_type, DATEDIFF(l.end_date, l.start_date) AS date_difference FROM user u , leave_applications l WHERE l.email = u.email AND l.status = \"Approved\";";
             }
             elseif (isset($_COOKIE["role"]) and isset($_COOKIE["email"]) and $_COOKIE["role"] == "Employee") {
                 $email = $_COOKIE["email"];
@@ -108,12 +115,14 @@
                 else {
                     $number_of_days = 31;
                 }
+                include "manager_calendar_view.php";
             }
-            include "manager_calendar_view.php";
         ?>
     </div>
-    <p>
-        Key : <i class='material-icons' style='color: green;'>check_circle</i> - Leave, <i class='material-icons' style='color: red;'>cancel</i> - Available
-    </p>
+    <?php 
+    if (isset($_COOKIE["role"]) and $_COOKIE["role"] == "Manager") {
+        echo "<p class = 'key'>Key : <i class='material-icons' style='color: green;'>check_circle</i> - Leave</p>";    
+    }
+    ?>
 </body>
 </html>
