@@ -27,9 +27,21 @@
                         for ($i=1; $i <= $number_of_days; $i++) {
                             if (in_array($i,range($date_from_db, $date_from_db + $row["date_difference"]))) {
                                 echo "<td><i class='material-icons' style='color: green;'>check_circle</i></td>";
-                            } else {
+                            }
+                            else {
                                 echo "<td></td>";
                             }
+                        }
+                    }
+                    else {
+                        $start = (int) $date_from_db;
+                        $end = $date_from_db + $row["date_difference"];
+                        $month_name = $months[$month_from_db -1];
+                        if ($start == $end) {
+                            echo "<td colspan = '$number_of_days'>On the $start of $month_name $year_from_db</td>";
+                        }
+                        else {
+                            echo "<td colspan = '$number_of_days'>From $start to $end of $month_name $year_from_db</td>";
                         }
                     }
                     echo "</tr>";

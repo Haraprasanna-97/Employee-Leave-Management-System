@@ -38,7 +38,7 @@
     <a href = "./calender_view.php" class="nav-btn" style = "text-decoration : none; width: 15%;" ">Current month</a>
     <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST" and isset($_COOKIE["role"]) and $_COOKIE["role"] == "Manager"){
-            $month = $_POST["month"] -1;
+            $month = $_POST["month"] -1;    
             $year = $_POST["year"];
             $month_year = "$months[$month] $year";
             echo "<h3 id = 'month-year'>$month_year</h3>";
